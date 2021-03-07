@@ -59,7 +59,7 @@ class SignUpScreen extends StatelessWidget {
                                               padding: const EdgeInsets.only(
                                                   left: 32.0),
                                               child: Text(
-                                                "Let's get started",
+                                                "let's get started",
                                                 style: const TextStyle(
                                                     color: AppColors.colorBlack,
                                                     fontSize: 28.0,
@@ -206,28 +206,40 @@ class _RadioGroupState extends State<RadioGroup> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Row(
-          children: [
-            Radio(
-              value: "buyer",
-              groupValue: selected,
-              onChanged: valueChanged,
-              activeColor: AppColors.colorBlack,
-            ),
-            Text("buyer",
-                style: TextStyle(fontSize: 18.0, color: AppColors.colorBlack)),
-          ],
-        ),
-        Row(
-          children: [
-            Radio(
-                value: "seller",
+        InkWell(
+          onTap: () {
+            valueChanged("buyer");
+          },
+          child: Row(
+            children: [
+              Radio(
+                value: "buyer",
                 groupValue: selected,
                 onChanged: valueChanged,
-                activeColor: AppColors.colorBlack),
-            Text("seller",
-                style: TextStyle(fontSize: 18.0, color: AppColors.colorBlack)),
-          ],
+                activeColor: AppColors.colorBlack,
+              ),
+              Text("buyer",
+                  style:
+                      TextStyle(fontSize: 18.0, color: AppColors.colorBlack)),
+            ],
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            valueChanged("seller");
+          },
+          child: Row(
+            children: [
+              Radio(
+                  value: "seller",
+                  groupValue: selected,
+                  onChanged: valueChanged,
+                  activeColor: AppColors.colorBlack),
+              Text("seller",
+                  style:
+                      TextStyle(fontSize: 18.0, color: AppColors.colorBlack)),
+            ],
+          ),
         ),
       ],
     );
